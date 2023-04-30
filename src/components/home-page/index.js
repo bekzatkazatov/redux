@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {deleteTodo, editTodo, getTodos} from "../../redux/action/todoAction"
 import {useDispatch, useSelector} from "react-redux";
+import {toast} from "react-toastify";
+import {Link} from "react-router-dom";
 
 const HomePage = () => {
     const dispatch = useDispatch()
@@ -9,7 +11,8 @@ const HomePage = () => {
         dispatch(getTodos())
     }, [])
 
-    const todos = useSelector(state => state.todos)
+    const todos = useSelector(state => state.todoReducer.todos)
+
 
     const handleDelete = (id) => {
         dispatch(deleteTodo(id))
@@ -25,6 +28,7 @@ const HomePage = () => {
 
     return (
         <div>
+
             <input type="text" value={currentTodo?.text} onChange={handleEditChange}/><button onClick={edit}>save</button>
             {
                 <ul>
@@ -35,6 +39,7 @@ const HomePage = () => {
                     </li>)}
                 </ul>
             }
+            <Link to='/users'>Users</Link>
         </div>
     )
 }

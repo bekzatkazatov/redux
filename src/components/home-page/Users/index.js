@@ -16,8 +16,8 @@ const UsersPage = () => {
                 <ul>
                     {users.map(user => <li key={user.id}>
                         {user.name}
-                        {/*<button onClick={() => handleDelete(todo.id)}>delete</button>*/}
-                        {/*<button onClick={() => setCurrentTodo(todo)}>edit</button>*/}
+                        {/*<button onClick={() => handleDelete(users.id)}>delete</button>*/}
+                        {/*<button onClick={() => setCurrent(user)}>edit</button>*/}
                     </li>)}
                 </ul>
             }
